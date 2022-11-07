@@ -38,8 +38,8 @@ const Header = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-         <Link  className="flex items-center">
-         Account
+         <Link to='/blog'  className="flex items-center">
+         Blog
         </Link>
       </Typography>
       <Typography

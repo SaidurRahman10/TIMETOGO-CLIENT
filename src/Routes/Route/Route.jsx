@@ -1,6 +1,8 @@
 
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../../Layout/Main';
+import Blog from '../../Pages/Blog/Blog';
+import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
 import Home from '../../Pages/Home/Home';
 import Login from '../../Pages/Login/Login';
 import Register from '../../Pages/Login/Register';
@@ -11,13 +13,14 @@ import Register from '../../Pages/Login/Register';
         {path:'/', element:<Main></Main>,children:[
             {path:'/', element:<Home></Home>},
             {path:'/register',element:<Register></Register>},
-            {path:'/login',element:<Login></Login>}
+            {path:'/login',element:<Login></Login>},
+            {path:'/blog', element:<Blog></Blog>}
 
 
 
 
-            
+
         ]},
-        {path:'*',element:<div>Sorry Brooooooooooooooo</div>}
+        {path:'*',element:<ErrorPage></ErrorPage>}
 
     ])
