@@ -1,15 +1,26 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import banner from  '../../images/HeroBanner2.png'
 import shape1 from  '../../images/shape1.png'
 import shape2 from  '../../images/shape2.png'
 import shape3 from  '../../images/shape3.png'
 import TravelPage2 from '../travelPage/TravelPage2';
+import FreePage from './FreePage';
 
 
 
 const Home = () => {
+    const [light, setLight] = useState([])
+
+    useEffect(()=>{
+        fetch('data.json')
+    .then(res => res.json())
+    .then(data => {
+        setLight(data)
+    })
+   
+    },[])
     return (
         <div>
         <div className="container px-6  mx-auto">
@@ -39,6 +50,7 @@ const Home = () => {
     </div>
 
         <TravelPage2></TravelPage2>
+       
     </div>
    
     );
