@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const AllPlace = ({allPlaces}) => {
   
@@ -18,7 +20,11 @@ const AllPlace = ({allPlaces}) => {
       <div className="w-full ">
         <div className=" overflow-hidden rounded-lg bg-white">
           
-          <img src={img} className="w-full" alt="images" />
+        <PhotoProvider>
+      <PhotoView src={img}>
+      <img src={img} className="w-full" alt="images" />
+      </PhotoView>
+    </PhotoProvider>
           <div className="p-8 text-center sm:p-9 md:p-7 xl:p-9">
             <h3>
               <div

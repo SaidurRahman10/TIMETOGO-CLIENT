@@ -1,4 +1,6 @@
 import React from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 import { Link } from 'react-router-dom';
 
@@ -13,8 +15,12 @@ const HomeCard = ({place}) => {
     <div className=" flex flex-wrap">
       <div className="w-full ">
         <div className=" overflow-hidden rounded-lg bg-white">
+        <PhotoProvider>
+      <PhotoView src={img}>
+      <img src={img} className="w-full" alt="images" />
+      </PhotoView>
+    </PhotoProvider>
           
-          <img src={img} className="w-full" alt="images" />
           <div className="p-8 text-center sm:p-9 md:p-7 xl:p-9">
             <h3>
               <div
