@@ -79,22 +79,17 @@ const Blog = () => {
                   </div>
                   <div className="w-full">
                     <h4 className="text-lg font-semibold ">
-                      WHAT IS CORS ?
+                      Difference between SQL and NoSQL?
                     </h4>
                   </div>
                 </button>
                 <div x-show="openFaq1" className="faq-content pl-[62px]">
                   <p className="text-base  leading-relaxed py-3">
-                    Cross-Origin Resource Sharing (CORS) is an HTTP-header based
-                    mechanism that allows a server to indicate any origins
-                    (domain, scheme, or port) other than its own from which a
-                    browser should permit loading resources. CORS also relies on
-                    a mechanism by which browsers make a "preflight" request to
-                    the server hosting the cross-origin resource, in order to
-                    check that the server will permit the actual request. In
-                    that preflight, the browser sends headers that indicate the
-                    HTTP method and headers that will be used in the actual
-                    request.
+                    SQL is the programming language used to interface with
+                    relational databases. (Relational databases model data as
+                    records in rows and tables with logical links between them).
+                    NoSQL is a class of DBMs that are non-relational and
+                    generally do not use SQL.
                   </p>
                 </div>
               </div>
@@ -144,25 +139,22 @@ const Blog = () => {
                   </div>
                   <div className="w-full">
                     <h4 className="text-lg font-semibold ">
-                      Why we using firebase? What other options do we have to
-                      implement authentication?
+                      What is JWT, and how does it work?
                     </h4>
                   </div>
                 </button>
                 <div x-show="openFaq1" className="faq-content pl-[62px]">
                   <p className="text-base  leading-relaxed py-3">
-                    Firebase Authentication provides backend services,
-                    easy-to-use SDKs, and ready-made UI libraries to
-                    authenticate users to your app. It supports authentication
-                    using passwords, phone numbers, popular federated identity
-                    providers like Google, Facebook and Twitter, and more.{" "}
-                    <br /> <br />
-                    <h1 className="font-bold">
-                      We have other options do we have to implement
-                      authentication
-                    </h1>
-                    STYTCH, Ory, Supabase, Okta, PingIdentity, Keycloa,
-                    Frontegg, Authress and etc.
+                    It is compact, readable and digitally signed using a private
+                    key/ or a public key pair by the Identity Provider(IdP). So
+                    the integrity and authenticity of the token can be verified
+                    by other parties involved. The purpose of using JWT is not
+                    to hide data but to ensure the authenticity of the data. JWT
+                    is signed and encoded, not encrypted. JWT is a token based
+                    stateless authentication mechanism. Since it is a
+                    client-side based stateless session, server doesn't have to
+                    completely rely on a datastore(database) to save session
+                    information.
                   </p>
                 </div>
               </div>
@@ -212,16 +204,18 @@ const Blog = () => {
 
                   <div className="w-full">
                     <h4 className="text-lg font-semibold ">
-                      How does the private route work?
+                      What is the difference between javascript and NodeJS?
                     </h4>
                   </div>
                 </button>
                 <div x-show="openFaq6" className="faq-content pl-[62px]">
                   <p className="text-base  leading-relaxed py-3">
-                    The react private route component renders child components (
-                    children ) if the user is logged in. If not logged in the
-                    user is redirected to the /login page with the return url
-                    passed in the location state property.
+                    JavaScript is a simple programming language that can be used
+                    with any browser that has the JavaScript Engine installed.
+                    Node.js, on the other hand, is an interpreter or execution
+                    environment for the JavaScript programming language. It
+                    requires libraries that can be conveniently accessed from
+                    JavaScript programming to be more helpful.
                   </p>
                 </div>
               </div>
@@ -271,19 +265,22 @@ const Blog = () => {
 
                   <div className="w-full">
                     <h4 className="text-lg font-semibold ">
-                      What is Node? How does Node work?
+                      How does NodeJS handle multiple requests at the same time?
                     </h4>
                   </div>
                 </button>
                 <div x-show="openFaq6" className="faq-content pl-[62px]">
                   <p className="text-base  leading-relaxed py-3">
-                    Node. js (Node) is an open source development platform for
-                    executing JavaScript code server-side. It is a used as
-                    backend service where javascript works on the server-side of
-                    the application. This way javascript is used on both
-                    frontend and backend. Node. js runs on chrome v8 engine
-                    which converts javascript code into machine code, it is
-                    highly scalable, lightweight, fast, and data-intensive.
+                    NodeJS receives multiple client requests and places them
+                    into EventQueue. NodeJS is built with the concept of
+                    event-driven architecture. NodeJS has its own EventLoop
+                    which is an infinite loop that receives requests and
+                    processes them. EventLoop is the listener for the
+                    EventQueue. If NodeJS can process the request without I/O
+                    blocking then the event loop would itself process the
+                    request and sends the response back to the client by itself.
+                    But, it is possible to process multiple requests parallelly
+                    using the NodeJS cluster module or worker_threads module.
                   </p>
                 </div>
               </div>
