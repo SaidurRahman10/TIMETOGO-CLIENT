@@ -1,12 +1,17 @@
-import { Button } from '@material-tailwind/react';
+
 import React from 'react';
+import { Link } from 'react-router-dom';
 import banner from  '../../images/HeroBanner2.png'
 import shape1 from  '../../images/shape1.png'
 import shape2 from  '../../images/shape2.png'
 import shape3 from  '../../images/shape3.png'
+import TravelPage2 from '../travelPage/TravelPage2';
+
+
 
 const Home = () => {
     return (
+        <div>
         <div className="container px-6  mx-auto">
         <div className="items-center lg:flex">
             <div className="w-full lg:w-1/2">
@@ -14,10 +19,12 @@ const Home = () => {
                     <p className=' italic font-bold text-teal-500'>Enjoy Your Travel With</p>
                     <h1 className="text-6xl leading-tight  font-semibold text-gray-800 uppercase  ">Trusted Travel <span className='text-teal-500'>Agency</span> </h1>
                     
-                    <p className="mt-2 text-gray-500 ">I travel not to go anywhere, but to go. I travel for travel's sake the great affair is to move.</p>
+                    <p className="mt-2 text-gray-500 ">Select a popular travel destination below to discover exclusive trips backed by our low price guarantee.</p>
                     
                     <button className="w-full tracking-wider px-6 py-2.5 mt-6 text-sm text-white  duration-300 transform bg-yellow-500 rounded-md lg:w-auto hover:bg-teal-500 focus:outline-none focus:bg-teal-500">Shop Now</button>
-                    <button className='px-8 py-2.5 mt-6 text-sm text-teal-400 border border-teal-400 hover:bg-teal-500 hover:text-white rounded-lg duration-300 transform ml-10'>Login</button>
+                   <Link to='/login'>
+                   <button className='w-full tracking-wider px-8 py-2.5 mt-6 text-sm text-teal-400  duration-300 transform border border-teal-500 hover:text-white rounded-md lg:w-auto hover:bg-teal-500 focus:outline-none focus:bg-teal-500 ml-5'>Login</button>
+                   </Link>
                 </div>
             </div>
 
@@ -29,6 +36,9 @@ const Home = () => {
               
             </div>
         </div>
+    </div>
+
+        <TravelPage2></TravelPage2>
     </div>
    
     );

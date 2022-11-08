@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { myContext } from '../../AuthProvider/AuthProvider';
-import reg1 from '../../img/reg1.png'
+import { myContext } from '../../Context/AuthProvider';
+
+import reg1 from '../../images/reg1.png'
 
 
 
@@ -36,7 +37,7 @@ const Registration = () => {
 
     }
     return (
-        <div className='mx-12 mt-5 '>
+        <div className='mx-12 my-6 bg-white '>
         <div className='grid md:grid-cols-2 grid-cols-1 gap-5'>
         <div className="block p-8 md:p-20 rounded-lg    border ">
 <form onSubmit={handelSubmit}>
@@ -121,8 +122,7 @@ placeholder="Password" />
 </div>
 <h1 className='font-bold text-xs mb-10'>Already have an account?<Link className='text-blue-600' to='/login'> Please Log in</Link></h1>
 <h1 className='my-2 text-red-600 font-bold'>{error}</h1>
-<button type="submit" className="
-text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Submit</button>
+<button type="submit" className="w-full tracking-wider px-8 py-2.5 text-sm text-teal-400  duration-300 transform border border-teal-500 hover:text-white rounded-md lg:w-auto hover:bg-teal-500 focus:outline-none focus:bg-teal-500">Submit</button>
 </form>
 </div>
 
