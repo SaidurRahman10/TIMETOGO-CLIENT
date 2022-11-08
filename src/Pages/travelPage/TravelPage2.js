@@ -5,7 +5,7 @@ import {FaCompass ,FaDollarSign, FaUmbrellaBeach } from 'react-icons/fa';
 const TravelPage2 = () => {
     return (
         <div>
-             <div className="container px-6  mx-auto">
+             <div className="container px-6  mx-auto ">
         <div className="items-center lg:flex">
             <div className="w-full lg:w-1/2">
                 <div className="lg:max-w-lg">

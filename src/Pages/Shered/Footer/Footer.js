@@ -18,8 +18,7 @@ const Footer = () => {
             />
           </div>
           <p className="text-body-color mb-7 text-base">
-            Sed ut perspiciatis undmnis is iste natus error sit amet voluptatem
-            totam rem aperiam.
+          Select a popular travel destination below to discover exclusive trips backed by our low price guarantee.
           </p>
           <p className="text-dark flex items-center text-sm font-medium">
             <span className="text-primary mr-3">
@@ -40,7 +39,7 @@ const Footer = () => {
                 />
               </svg>
             </span>
-            <span>+012 (345) 678 99</span>
+            <span>+88017985157</span>
           </p>
         </div>
       </div>
@@ -92,7 +91,7 @@ const Footer = () => {
                
                 className="text-body-color hover:text-primary mb-2 inline-block text-base leading-loose"
               >
-                About TailGrids
+                About TourPlan
               </div>
             </li>
             <li>
@@ -226,7 +225,7 @@ const Footer = () => {
               </svg>
             </div>
           </div>
-          <p className="text-body-color text-base">&copy; 2025 TailGrids</p>
+          <p className="text-body-color text-base">&copy; 2025 SaidurRahman</p>
         </div>
       </div>
     </div>

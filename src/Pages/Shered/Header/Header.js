@@ -15,7 +15,7 @@ import { FaUser } from "react-icons/fa";
 const Header = () => {
     const [openNav, setOpenNav] = useState(false);
      const {user,logOut} = useContext(myContext)
-     console.log(user?.photoURL);
+     
      
  
   useEffect(() => {
