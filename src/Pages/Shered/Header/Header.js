@@ -28,7 +28,7 @@ const Header = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link to='/' className="flex items-center">
+        <Link to='/' className="flex items-center hover:text-lg duration-300 transform hover:text-amber-200 font-bold  ">
         Home
         </Link>
       </Typography>
@@ -38,7 +38,7 @@ const Header = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-         <Link to='/blog'  className="flex items-center">
+         <Link to='/blog'  className="flex items-center hover:text-lg duration-300 transform hover:text-amber-200 font-bold ">
          Blog
         </Link>
       </Typography>
@@ -48,7 +48,7 @@ const Header = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link  className="flex items-center">
+        <Link  className="flex items-center hover:text-lg duration-300 transform hover:text-amber-200 font-bold ">
        Blocks
         </Link>
       </Typography>
@@ -58,7 +58,7 @@ const Header = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-      <Link to='/login' className="flex items-center">
+      <Link to='/login' className="flex items-center hover:text-lg duration-300 transform hover:text-amber-200 font-bold ">
         Login
         </Link>
       </Typography>
@@ -74,7 +74,9 @@ const Header = () => {
           variant="small"
           className="mr-4 cursor-pointer py-1.5 font-normal"
         >
-         <img src={logo} alt="" />
+       <Link to='/'>
+       <img  src={logo} alt="" />
+       </Link>
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         <Button variant="gradient" size="sm" className="hidden lg:inline-block">
