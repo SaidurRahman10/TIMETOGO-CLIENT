@@ -20,7 +20,9 @@ const HeroSection = () => {
                     
                     <p className="mt-2 text-gray-500 ">Select a popular travel destination below to discover exclusive trips backed by our low price guarantee.</p>
                     
-                    <button className="w-full tracking-wider px-6 py-2.5 mt-6 text-sm text-white  duration-300 transform bg-yellow-500 rounded-md lg:w-auto hover:bg-teal-500 focus:outline-none focus:bg-teal-500">Shop Now</button>
+                  <Link to='/allPlace'>
+                  <button className="w-full tracking-wider px-6 py-2.5 mt-6 text-sm text-white  duration-300 transform bg-yellow-500 rounded-md lg:w-auto hover:bg-teal-500 focus:outline-none focus:bg-teal-500">Book Now</button>
+                  </Link> 
                    <Link to='/login'>
                    <button className='w-full tracking-wider px-8 py-2.5 mt-6 text-sm text-teal-400  duration-300 transform border border-teal-500 hover:text-white rounded-md lg:w-auto hover:bg-teal-500 focus:outline-none focus:bg-teal-500 ml-5'>Login</button>
                    </Link>

@@ -59,8 +59,28 @@ const Header = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link  className="flex items-center hover:text-lg duration-300 transform hover:text-amber-200 font-bold ">
-       Blocks
+        <Link to='myreview'  className="flex items-center hover:text-lg duration-300 transform hover:text-amber-200 font-bold ">
+       My Review
+        </Link>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <Link to='/addservice'  className="flex items-center hover:text-lg duration-300 transform hover:text-amber-200 font-bold ">
+       Add Service
+        </Link>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <Link onClick={handelLogOut}  className="flex items-center hover:text-lg duration-300 transform hover:text-amber-200 font-bold ">
+       Log Out
         </Link>
       </Typography>
      
@@ -111,7 +131,7 @@ const Header = () => {
                 <Link to="/login">
                   <button
                     type="button"
-                    className=" hidden md:block text-white font-bold  bg-slate-700  rounded-lg text-base px-8 py-2 text-center mr-2 mb-2"
+                    className=" hidden md:block text-teal-500 font-bold  bg-white  rounded-lg text-base px-8 py-2 text-center mr-2 mb-2"
                   >
                     Log In
                   </button>
@@ -161,7 +181,9 @@ const Header = () => {
       <MobileNav open={openNav}>
         {navList}
         <Button variant="gradient" size="sm" fullWidth className="mb-2">
-          <span>Buy Now</span>
+        <Link to='/allPlace'>
+                  <button className="w-full tracking-wider px-6 py-2.5 mt-6 text-sm text-white  duration-300 transform border bg-yellow-500 rounded-md lg:w-auto hover:border-white hover:bg-transparent focus:outline-none ">Book Now</button>
+                  </Link> 
         </Button>
       </MobileNav>
     </Navbar>

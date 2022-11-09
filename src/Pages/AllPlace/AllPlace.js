@@ -35,9 +35,10 @@ const AllPlace = ({allPlaces}) => {
               </div>
             </h3>
             <p className="text-slate-500 mb-7 text-base leading-relaxed">
-             {description.slice(0,130)}...
+             {description.slice(0,99)}...
             </p>
-         <Link
+            <div className='font-bold text-xl mb-5'>Tour Price: $ {price}</div>
+         <Link to={`/allPlace/${_id}`}
              
               className="text-white  hover:bg-transparent inline-block rounded-full border hover:border-teal-500 bg-teal-500 py-2 px-7 text-base font-medium transition hover:text-teal-500 "
             >
