@@ -5,10 +5,13 @@ import login1 from "../../images/login1.png";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { myContext } from "../../Context/AuthProvider";
+import useTitle from "../../Hooks/Hooks";
 
 const Login = () => {
   const [error, setError] = useState("");
   const { logIn, googleSignIn, githubSignIn, user } = useContext(myContext);
+
+  useTitle('Login')
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();

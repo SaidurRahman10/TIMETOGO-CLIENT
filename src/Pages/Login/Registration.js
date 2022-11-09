@@ -2,12 +2,14 @@ import React, { useContext } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { myContext } from '../../Context/AuthProvider';
+import useTitle from '../../Hooks/Hooks';
 
 import reg1 from '../../images/reg1.png'
 
 
 
 const Registration = () => {
+    useTitle('Registration')
     const [error, setError] = useState('')
     const {createUser} = useContext(myContext);
     const handelSubmit = (event) =>{

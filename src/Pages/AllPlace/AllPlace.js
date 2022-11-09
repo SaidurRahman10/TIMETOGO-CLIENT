@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import useTitle from '../../Hooks/Hooks';
 
 const AllPlace = ({allPlaces}) => {
+
+  useTitle('Places')
   
   
 

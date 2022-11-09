@@ -5,6 +5,7 @@ import TravelPage2 from '../travelPage/TravelPage2';
 import { Link, useLoaderData } from 'react-router-dom';
 import HomeCard from './HomeCard/HomeCard';
 import TravelerReview from './TravelerReview/TravelerReview';
+import useTitle from '../../Hooks/Hooks';
 
 
 
@@ -16,6 +17,8 @@ import TravelerReview from './TravelerReview/TravelerReview';
 
 const Home = () => {
     const places = useLoaderData()
+
+    useTitle('Home')
     
 
     

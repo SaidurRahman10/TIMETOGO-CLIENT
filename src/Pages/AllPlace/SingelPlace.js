@@ -7,20 +7,25 @@ import "react-toastify/dist/ReactToastify.css";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { myContext } from "../../Context/AuthProvider";
+import SideReview from "./SideReview";
+import useTitle from "../../Hooks/Hooks";
 
 
 
 const SingelPlace = () => {
+  useTitle('Booking ')
   const {user} = useContext(myContext)
   const { title, img, description, price, time , review , _id } = useLoaderData();
   
   const [orders, setOrders] = useState([])
 
   useEffect(()=>{
-      fetch(`http://localhost:5000/orders/${_id}`)
+      fetch(`http://localhost:5000/orders?email=${user?.email}`)
       .then(res => res.json())
       .then(data => setOrders(data))
-  },[_id])
+  },[user?.email])
+
+  
   
   
   const handlePlaceOrder = (event) =>{
@@ -54,7 +59,7 @@ const SingelPlace = () => {
      })
      .then(res => res.json())
      .then(data =>{
-      console.log(data);
+      
 
       if(data.acknowledged){
         alert('Review Add SuccessFully')
@@ -156,26 +161,9 @@ const SingelPlace = () => {
 
          </div>
          <div>
-         {
-            orders.map( order =>
-            
-             <div>
-            <div className="border  text-slate-500 text-md font-bold p-10">
-              <div className="mx-auto">
-
-              <img 
-              className=" rounded-full mx-auto"
-              style={{ height: "50px" }}
-              title={order.placeName}
-              src={order.img} alt="" />
-              <h1 className="text-center font-bolder my-2">{order.customer}</h1>
-              <p className="text-sm text-center">{order.message}</p>
-              </div>
-              
-              </div>
-            </div> 
-            )
-        }
+           {
+            orders.map(order => <SideReview key={order._key} order={order}></SideReview>)
+           }
          </div>
          <div>
           {
