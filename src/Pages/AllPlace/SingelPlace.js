@@ -1,13 +1,75 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+
 
 import { Link, useLoaderData } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { myContext } from "../../Context/AuthProvider";
+
+
 
 const SingelPlace = () => {
-  const { title, img, description, price, time } = useLoaderData();
+  const {user} = useContext(myContext)
+  const { title, img, description, price, time , review , _id } = useLoaderData();
+  
+  const [orders, setOrders] = useState([])
+
+  useEffect(()=>{
+      fetch(`http://localhost:5000/orders/${_id}`)
+      .then(res => res.json())
+      .then(data => setOrders(data))
+  },[_id])
+  
+  
+  const handlePlaceOrder = (event) =>{
+     event.preventDefault()
+
+     const form = event.target;
+     const name = event.target.name.value;
+     const email = user?.email || 'Unregister';
+     const message = event.target.message.value;
+     const img = user?.photoURL || 'image'
+ 
+
+
+     const order ={
+       place:_id,
+       title,
+       price,
+       name,
+       email,
+       message,
+       img
+
+
+     }
+     fetch('http://localhost:5000/orders',{
+      method:'POST',
+      headers:{
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(order)
+     })
+     .then(res => res.json())
+     .then(data =>{
+      console.log(data);
+
+      if(data.acknowledged){
+        alert('Review Add SuccessFully')
+        form.reset();
+      }
+
+
+     })
+     .catch(err => console.log(err))
+
+  }
+
+  
+   
+  
 
   const notify = () => toast("Thanks For Booking!");
 
@@ -34,7 +96,7 @@ const SingelPlace = () => {
           
          <div className="flex justify-center gap-14">
 
-          <h1 className="text-4xl font-extrabold  mb-3 mx-5 md:mx-0 ">
+          <h1 className="text-4xl font-extrabold  mb-3 mx-5 md:mx-0 text-yellow-700">
             Price: <span className="text-amber-500"> ${price}</span>
           </h1>
           <p className="font-bold text-lg text-lime-400">Tour Hours: <span className="text-2xl text-green-500">{time} H</span> </p>
@@ -71,11 +133,83 @@ const SingelPlace = () => {
     </div>
 
 
-        <div className="text-center text-5xl">
-          Reviews
+        <div>
+          { user?.uid ?
+            <div>
+
+        
+         <div>ALL Review</div>
+         <div>
+          
+         <form onSubmit={handlePlaceOrder}>
+                
+                
+                    <input name="name" type="text" placeholder="Name " className="input input-ghost rounded-xl shadow-xl  h-12 w-full input-bordered mb-5 p-5 mt-12" />
+       
+                    <input name="email" type="text" defaultValue={user?.email} placeholder="Your email"  className="input input-ghost rounded-xl shadow-xl h-12 w-full  input-bordered p-5" readOnly />
+                
+                <textarea name="message" className="p-5 textarea textarea-bordered rounded-xl shadow-xl h-24 w-full mt-5" placeholder="Add Your Review" required></textarea>
+
+                <input className='btn text-body-color hover:border-primary hover:bg-primary inline-block rounded-xl border hover:border-black py-3 px-9 text-base font-medium transition hover:bg-white bg-teal-500 hover:px-14  hover:text-black text-white' type="submit" value="Place Your Order" />
+               
+            </form>
+
+         </div>
+         <div>
+         {
+            orders.map( order =>
+            
+             <div>
+            <div className="border  text-slate-500 text-md font-bold p-10">
+              <div className="mx-auto">
+
+              <img 
+              className=" rounded-full mx-auto"
+              style={{ height: "50px" }}
+              title={order.placeName}
+              src={order.img} alt="" />
+              <h1 className="text-center font-bolder my-2">{order.customer}</h1>
+              <p className="text-sm text-center">{order.message}</p>
+              </div>
+              
+              </div>
+            </div> 
+            )
+        }
+         </div>
+         <div>
+          {
+            review.map( rev => <div className="border  text-slate-500 text-md font-bold p-10">
+              <div className="mx-auto">
+
+              <img 
+              className=" rounded-full mx-auto"
+              style={{ height: "50px" }}
+              title={rev.name}
+              src={rev.img} alt="" />
+              <h1 className="text-center font-bolder my-2">{rev.name}</h1>
+              <p className="text-sm">{rev.review}</p>
+              </div>
+              
+              </div>)
+          }
+         </div>
         </div>
+        :
+        <div className="">
+        <h1 className="text-red-500 text-3xl text-center  font-extrabold">Please login to add a review!!!</h1>
+        <Link className="flex justify-center" to='/login'>
+                   <button className='w-full tracking-wider px-8 py-2.5 mt-6 text-sm text-teal-400  duration-300 transform border border-teal-500 hover:text-white rounded-md lg:w-auto hover:px-14 hover:bg-teal-500 focus:outline-none focus:bg-teal-500 ml-5'>Login</button>
+                   </Link>
+        </div>
+        
+
+
+      
+      }
 
       </div>
+    </div>
     </div>
   );
 };

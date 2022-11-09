@@ -16,6 +16,7 @@ const Login = () => {
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
+  console.log(from);
 
   const handelSubmit = (event) => {
     event.preventDefault();
