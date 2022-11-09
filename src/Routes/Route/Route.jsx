@@ -9,6 +9,8 @@ import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Registration from "../../Pages/Login/Registration";
+import PrivateRoute from "../PVR/PrivateRoutE";
+
 
 export const router = createBrowserRouter([
   {
@@ -24,8 +26,8 @@ export const router = createBrowserRouter([
       { path: "/login", element: <Login></Login> },
       { path: "/blog", element: <Blog></Blog> },
       {path:"/allPlace",loader:()=> fetch('http://localhost:5000/allPlace'), element:<AllPlacesShow></AllPlacesShow>},
-      {path:'/place/:id',loader:({params})=>  fetch(`http://localhost:5000/place/${params.id}`) ,element:<SingelPlace></SingelPlace>},
-      {path:'/allPlace/:id',loader:({params})=>  fetch(`http://localhost:5000/allPlace/${params.id}`) ,element:<SingelPlace></SingelPlace>},
+      {path:'/place/:id',loader:({params})=>  fetch(`http://localhost:5000/place/${params.id}`) ,element:<PrivateRoute><SingelPlace></SingelPlace></PrivateRoute>},
+      {path:'/allPlace/:id',loader:({params})=>  fetch(`http://localhost:5000/allPlace/${params.id}`) ,element:<PrivateRoute><SingelPlace></SingelPlace></PrivateRoute>},
     ],
   },
   { path: "*", element: <ErrorPage></ErrorPage> },

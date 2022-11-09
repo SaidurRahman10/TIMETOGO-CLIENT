@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link,  } from "react-router-dom";
+import { Link, useLocation, useNavigate,  } from "react-router-dom";
 
 import login1 from "../../images/login1.png";
 import { FaGoogle, FaGithub } from "react-icons/fa";
@@ -12,10 +12,10 @@ const Login = () => {
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
-  // const navigate = useNavigate();
-  // const location = useLocation();
+  const navigate = useNavigate()
+  const location = useLocation();
 
-  // const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || '/'
 
   const handelSubmit = (event) => {
     event.preventDefault();
@@ -30,13 +30,19 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-        // navigate(from, { replace: true });
+       navigate(from, {replace:true})
       })
       .catch((error) => {
         console.error(error);
         setError(error.message);
       });
-  };
+    };
+    useEffect(() => {
+      if (user) {
+        navigate(from, { replace: true });
+      }
+    }, [user]);
+  
   const handelGoogleSignIn = () => {
     googleSignIn(googleProvider)
       .then((result) => {
@@ -60,11 +66,6 @@ const Login = () => {
         setError(error.message);
       });
   };
-  useEffect(() => {
-    if (user) {
-      // navigate(from, { replace: true });
-    }
-  }, [user]);
 
   return (
     <div className="mx-12 my-5 bg-white">

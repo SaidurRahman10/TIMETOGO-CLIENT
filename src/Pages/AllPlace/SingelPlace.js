@@ -26,7 +26,7 @@ const SingelPlace = () => {
             </div>
           </h3>
           <div className="flex font-bold  mx-5 md:mx-0">
-            {rating}{" "}
+          
             <span className="flex ml-3 mt-">
               <FaStar />
               <FaStar />
