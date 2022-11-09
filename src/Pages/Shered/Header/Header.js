@@ -53,7 +53,10 @@ const Header = () => {
          Blog
         </Link>
       </Typography>
-      <Typography
+    
+    { user?.uid &&
+      <>
+       <Typography
         as="li"
         variant="small"
         color="blue-gray"
@@ -83,6 +86,8 @@ const Header = () => {
        Log Out
         </Link>
       </Typography>
+      </>
+    }
      
     </ul>
   );
