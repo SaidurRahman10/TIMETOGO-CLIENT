@@ -42,7 +42,7 @@ const Home = () => {
         </div>
         <div className='flex justify-center'>
 
-           <Link to='/allPlace'><button    className="text-white mt-10 shadow-xl  hover:bg-transparent inline-block rounded-full border hover:border-orange-300 bg-orange-300 py-2 px-7 text-base font-medium transition hover:text-orange-300 ">View All</button></Link>
+           <Link to='/allPlace'><button    className="text-white mt-10 shadow-xl  hover:bg-transparent inline-block rounded-2xl hover:px-14 duration-300 transition border hover:border-orange-300 bg-orange-300 py-2 px-7 text-base font-medium  hover:text-orange-300 ">View All</button></Link>
 
         </div>
         <TravelPage2></TravelPage2>

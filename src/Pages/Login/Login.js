@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate,  } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import login1 from "../../images/login1.png";
 import { FaGoogle, FaGithub } from "react-icons/fa";
@@ -12,10 +12,10 @@ const Login = () => {
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || '/'
+  const from = location.state?.from?.pathname || "/";
 
   const handelSubmit = (event) => {
     event.preventDefault();
@@ -30,19 +30,19 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-       navigate(from, {replace:true})
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
         setError(error.message);
       });
-    };
-    useEffect(() => {
-      if (user) {
-        navigate(from, { replace: true });
-      }
-    }, [user]);
-  
+  };
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user]);
+
   const handelGoogleSignIn = () => {
     googleSignIn(googleProvider)
       .then((result) => {
@@ -139,7 +139,7 @@ const Login = () => {
             <h1 className="my-2 text-red-600 font-bold">{error}</h1>
             <button
               type="submit"
-              className="w-full tracking-wider px-8 py-2.5 text-sm text-teal-400  duration-300 transform border border-teal-500 hover:text-white rounded-md lg:w-auto hover:bg-teal-500 focus:outline-none focus:bg-teal-500"
+              className="w-full tracking-wider px-8 py-2.5 text-sm text-teal-400  duration-300 transform border border-teal-500 hover:text-white rounded-md lg:w-auto hover:bg-teal-500 focus:outline-none focus:bg-teal-500 hover:px-14"
             >
               Log in
             </button>
