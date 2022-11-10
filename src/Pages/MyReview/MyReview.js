@@ -45,13 +45,23 @@ const MyReview = () => {
 
 
     return (
-        <div className='grid grid-cols-3 mx-5 my-5 gap-10'>
+        <div>
+            
+     { orders.length > 0 ?
+       <div className='grid grid-cols-3 mx-5 my-5 gap-10'>
              {
             orders.map( order => <MyAllReviews key={order._id} order={order} handelDelete={handelDelete}></MyAllReviews>
             
           
             )
         }
+        </div>
+        :
+        <div className='text-center text-5xl font-extrabold text-red-500 mt-12 '>No reviews were added!!!</div>
+        
+        }
+
+
         </div>
     );
 };
