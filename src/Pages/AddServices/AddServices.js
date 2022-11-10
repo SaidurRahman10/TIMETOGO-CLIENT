@@ -8,15 +8,7 @@ const AddServices = () => {
   useTitle("Add Services");
   const { user } = useContext(myContext);
 
-  let num = 10;
-  while (num < 50)
-  {
-    num += 1;
-    console.log(num);
-  }
-
-  
-  
+ 
 
   const handlePlaceOrder = (event) => {
     event.preventDefault();
@@ -27,11 +19,11 @@ const AddServices = () => {
     const message = form.message.value;
     const price = form.price.value;
     const url = form.url.value;
-   
+
     // const img = user?.photoURL || 'image'
 
     const service = {
-        num,
+     
       title,
       price,
       description: message,
@@ -40,7 +32,7 @@ const AddServices = () => {
       time: null,
       review: null,
     };
-    fetch("http://localhost:5000/allPlace", {
+    fetch(`https://timetogo-server.vercel.app/allPlace`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -49,7 +41,6 @@ const AddServices = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-     
         if (data.acknowledged) {
           alert("Post Add SuccessFully");
           form.reset();

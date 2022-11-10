@@ -13,7 +13,6 @@ import MyReview from "../../Pages/MyReview/MyReview";
 import Update from "../../Pages/MyReview/Update";
 import PrivateRoute from "../PVR/PrivateRoutE";
 
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -22,17 +21,47 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: ()=> fetch('http://localhost:5000/place')
+        loader: () => fetch("https://timetogo-server.vercel.app/place"),
       },
       { path: "/register", element: <Registration></Registration> },
       { path: "/login", element: <Login></Login> },
       { path: "/blog", element: <Blog></Blog> },
-      {path:"/allPlace",loader:()=> fetch('http://localhost:5000/allPlace'), element:<AllPlacesShow></AllPlacesShow>},
-      {path:'/place/:id',loader:({params})=>  fetch(`http://localhost:5000/place/${params.id}`) ,element:<SingelPlace></SingelPlace>},
-      {path:'/allPlace/:id',loader:({params})=>  fetch(`http://localhost:5000/allPlace/${params.id}`) ,element:<SingelPlace></SingelPlace>},
-      {path:'/myreview',element:<PrivateRoute><MyReview></MyReview></PrivateRoute>},
-      {path:'/addService',element:<AddServices></AddServices>,loader:()=> fetch('http://localhost:5000/allPlace')},
-      {path:'/update/:id',element:<Update></Update>,loader:({params})=> fetch(`http://localhost:5000/orders/${params.id}`)}
+      {
+        path: "/allPlace",
+        loader: () => fetch("https://timetogo-server.vercel.app/allPlace"),
+        element: <AllPlacesShow></AllPlacesShow>,
+      },
+      {
+        path: "/place/:id",
+        loader: ({ params }) =>
+          fetch(`https://timetogo-server.vercel.app/place/${params.id}`),
+        element: <SingelPlace></SingelPlace>,
+      },
+      {
+        path: "/allPlace/:id",
+        loader: ({ params }) =>
+          fetch(`https://timetogo-server.vercel.app/allPlace/${params.id}`),
+        element: <SingelPlace></SingelPlace>,
+      },
+      {
+        path: "/myreview",
+        element: (
+          <PrivateRoute>
+            <MyReview></MyReview>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/addService",
+        element: <AddServices></AddServices>,
+        loader: () => fetch("https://timetogo-server.vercel.app/allPlace"),
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+        loader: ({ params }) =>
+          fetch(`https://timetogo-server.vercel.app/orders/${params.id}`),
+      },
     ],
   },
   { path: "*", element: <ErrorPage></ErrorPage> },
