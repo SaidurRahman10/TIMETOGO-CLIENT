@@ -12,7 +12,7 @@ const AllPlace = ({allPlaces}) => {
 
  
 
-    const  {_id , img, title, description , price, rating} = allPlaces;
+    const  {_id , img, title, description , price} = allPlaces;
     return (
        <div>
 

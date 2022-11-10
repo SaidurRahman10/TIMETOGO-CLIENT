@@ -72,7 +72,7 @@ const Header = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Link to='/addservice'  className="flex items-center hover:text-lg duration-300 transform hover:text-amber-200 font-bold ">
+        <Link to='/addService'  className="flex items-center hover:text-lg duration-300 transform hover:text-amber-200 font-bold ">
        Add Service
         </Link>
       </Typography>

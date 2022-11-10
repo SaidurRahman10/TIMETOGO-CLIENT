@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import AddServices from "../../Pages/AddServices/AddServices";
 import AllPlace from "../../Pages/AllPlace/AllPlace";
 import AllPlacesShow from "../../Pages/AllPlace/AllPlacesShow";
 import SingelPlace from "../../Pages/AllPlace/SingelPlace";
@@ -29,7 +30,8 @@ export const router = createBrowserRouter([
       {path:"/allPlace",loader:()=> fetch('http://localhost:5000/allPlace'), element:<AllPlacesShow></AllPlacesShow>},
       {path:'/place/:id',loader:({params})=>  fetch(`http://localhost:5000/place/${params.id}`) ,element:<SingelPlace></SingelPlace>},
       {path:'/allPlace/:id',loader:({params})=>  fetch(`http://localhost:5000/allPlace/${params.id}`) ,element:<SingelPlace></SingelPlace>},
-      {path:'/myreview',element:<PrivateRoute><MyReview></MyReview></PrivateRoute>}
+      {path:'/myreview',element:<PrivateRoute><MyReview></MyReview></PrivateRoute>},
+      {path:'/addService',element:<AddServices></AddServices>,loader:()=> fetch('http://localhost:5000/allPlace')}
     ],
   },
   { path: "*", element: <ErrorPage></ErrorPage> },
