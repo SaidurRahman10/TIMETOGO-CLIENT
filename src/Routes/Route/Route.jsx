@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
       {
         path: "/allPlace",
         loader: () => fetch("https://timetogo-server.vercel.app/allPlace"),
-        element: <AllPlacesShow></AllPlacesShow>,
+        element: <PrivateRoute> <AllPlacesShow></AllPlacesShow></PrivateRoute>,
       },
       {
         path: "/place/:id",
