@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 
 
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
@@ -13,6 +13,7 @@ import useTitle from "../../Hooks/Hooks";
 
 
 const SingelPlace = () => {
+  // const location = useLocation()
   useTitle('Booking ')
   const {user} = useContext(myContext)
   const { title, img, description, price, time , review , _id } = useLoaderData();
@@ -62,7 +63,8 @@ const SingelPlace = () => {
       
 
       if(data.acknowledged){
-        alert('Review Add SuccessFully')
+       
+       
         form.reset();
       }
 
@@ -76,7 +78,10 @@ const SingelPlace = () => {
    
   
 
-  const notify = () => toast("Thanks For Booking!");
+  const notify = () => {
+    toast("Review Add SuccessFully!")
+    window.location.reload()
+  }
 
   return (
     <div>
@@ -111,14 +116,8 @@ const SingelPlace = () => {
 
 <div>
 
-    <button
-            onClick={notify}
-            type="button"
-            className="text-body-color hover:border-primary hover:bg-primary inline-block rounded-xl border hover:border-black py-3 px-9 text-base font-medium transition hover:bg-white bg-teal-500 hover:px-14  hover:text-black text-white"
-          >
-            Book Now
-          </button>
-          <ToastContainer />
+   
+       
 </div>
        
       
@@ -126,7 +125,7 @@ const SingelPlace = () => {
       <div className="mx-5 md:mx-0 mt-2 flex justify-center">
          
 
-         <Link
+         <Link 
            className="text-body-color hover:bg-primary inline-block rounded-full border border-black py-2 px-7 text-base font-medium transition hover:text-white hover:border-white   hover:bg-amber-300 text-black "
            to={`/allPlace`}
          >
@@ -149,13 +148,14 @@ const SingelPlace = () => {
          <form onSubmit={handlePlaceOrder}>
                 
                 
-                    <input name="name" type="text" placeholder="Name " className="input input-ghost rounded-xl shadow-xl  h-12 w-full input-bordered mb-5 p-5 mt-12" />
+                    <input name="name" type="text" placeholder="Name " className="input input-ghost rounded-xl shadow-xl  h-12 w-full input-bordered mb-5 p-5 mt-12" required/>
        
                     <input name="email" type="text" defaultValue={user?.email} placeholder="Your email"  className="input input-ghost rounded-xl shadow-xl h-12 w-full  input-bordered p-5" readOnly />
                 
                 <textarea name="message" className="p-5 textarea textarea-bordered rounded-xl shadow-xl h-24 w-full mt-5" placeholder="Add Your Review" required></textarea>
 
-                <input className='btn text-body-color hover:border-primary hover:bg-primary inline-block rounded-xl border hover:border-black py-3 px-9 text-base font-medium transition hover:bg-white bg-teal-500 hover:px-14  hover:text-black text-white' type="submit" value="Place Your Order" />
+                <input  onClick={notify} className='btn text-body-color hover:border-primary hover:bg-primary inline-block rounded-xl border hover:border-black py-3 px-9 text-base font-medium transition hover:bg-white bg-teal-500 hover:px-14  hover:text-black text-white' type="submit" value="Add Review" />
+                <ToastContainer />
                
             </form>
 

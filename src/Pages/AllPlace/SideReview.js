@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
 const SideReview = ({order}) => {
-    const {place} = order;
-    // const [orderPlace, setOrderPlace] = useState({})
- 
+    const {place, _id} = order;
+    const [orderPlace, setOrderPlace] = useState({})
 
-    // useEffect(()=>{
-    //     fetch(`http://localhost:5000/orders/${place}`)
-    //     .then(res => res.json())
-    //   .then(data => setOrderPlace(data))
-    //   console.log('OrderPlace',orderPlace);
+    useEffect(()=>{
+        fetch(`http://localhost:5000/orders/${_id}`)
+        .then(res => res.json())
+        .then(data => setOrderPlace(data))
+    },[place])
 
-    // },[place])
+ console.log(_id);
     return (
        
             <div className="border  text-slate-500 text-md font-bold p-10">
